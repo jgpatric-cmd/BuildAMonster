@@ -6,6 +6,13 @@ class Monster extends Phaser.Scene {
         //Create constants for the monster location
         this.bodyX = 300;
         this.bodyY = 350;
+
+        this.leftLegX = this.bodyX - 50;
+        this.rightLegX = this.leftLegX + 100;
+        this.legY = this.bodyY + 100;
+
+        this.leftArmX = this.bodyX - 50;
+        this.rightLegX = thid.leftArmX + 100;
         
     }
 
@@ -31,7 +38,14 @@ class Monster extends Phaser.Scene {
         //
         // look in spritesheet_default.xml for the individual sprite names
         // You can also download the asset pack and look in the PNG/default folder.
-        my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_greenD.png");
+        my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_yellowD.png");
+
+        //  Create the legs
+        my.sprite.rightLeg = this.add.sprite(this.rightLegX, this.legY, "monsterParts", "leg_yellowA.png");
+        my.sprite.leftLeg = this.add.sprite(this.leftLegX, this.legY, "monsterParts", "leg_yellowA.png");
+        my.sprite.leftLeg.flipX = true; 
+        //  Create the arms
+        my.sprite.rightArm = this.add.sprite(this.rightArmX, this.armY, "monsterParts", "arm_yellowA.png");
 
         
     }
